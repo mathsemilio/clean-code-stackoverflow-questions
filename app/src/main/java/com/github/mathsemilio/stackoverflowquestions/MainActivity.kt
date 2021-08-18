@@ -1,4 +1,4 @@
-package com.github.mathsemilio.stackoverfowquestions
+package com.github.mathsemilio.stackoverflowquestions
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
