@@ -1,5 +1,6 @@
 package com.github.mathsemilio.stackoverflowquestions.ui.screens.questionslist
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mathsemilio.stackoverflowquestions.R
 import com.github.mathsemilio.stackoverflowquestions.networking.StackoverflowApi
+import com.github.mathsemilio.stackoverflowquestions.ui.screens.questiondetails.QuestionDetailActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,13 +31,13 @@ class QuestionsListActivity : AppCompatActivity(), QuestionsListAdapter.OnQuesti
         super.onCreate(savedInstanceState)
 
         retrofit = Retrofit.Builder()
-            .baseUrl("http://api.stackexchange.com")
+            .baseUrl("http://api.stackexchange.com/2.3/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         stackoverflowApi = retrofit.create(StackoverflowApi::class.java)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_questions_list)
 
         progressBarQuestionsList = findViewById(R.id.progress_bar_questions_list)
         recyclerViewQuestionsList = findViewById(R.id.recycler_view_questions_list)
@@ -73,7 +75,9 @@ class QuestionsListActivity : AppCompatActivity(), QuestionsListAdapter.OnQuesti
     }
 
     override fun onQuestionClicked(questionId: String) {
-        Toast.makeText(this, "Question clicked with ID: $questionId", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, QuestionDetailActivity::class.java)
+        intent.putExtra("ARG_QUESTION_ID", questionId)
+        startActivity(intent)
     }
 
     override fun onStart() {
