@@ -1,6 +1,7 @@
 package com.github.mathsemilio.stackoverflowquestions.ui.screens.questiondetails
 
 import android.os.Bundle
+import android.text.Html
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -67,7 +68,7 @@ class QuestionDetailActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main.immediate) {
                     questionTitle.text = question?.title
                     questionAuthor.text = "by ${question?.owner?.displayName}"
-                    questionBody.text = question?.body
+                    questionBody.text = Html.fromHtml(question?.body, Html.FROM_HTML_MODE_LEGACY)
                 }
             } catch (exception: Exception) {
                 withContext(Dispatchers.Main.immediate) {
