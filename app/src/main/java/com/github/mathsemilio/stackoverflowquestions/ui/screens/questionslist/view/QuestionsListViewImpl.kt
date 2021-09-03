@@ -21,10 +21,10 @@ class QuestionsListViewImpl(
     private var recyclerViewQuestionsList: RecyclerView
 
     init {
-        rootView = layoutInflater.inflate(R.layout.activity_questions_list, parent, false)
+        rootView = layoutInflater.inflate(R.layout.fragment_questions_list, parent, false)
 
         constraintLayoutQuestionsListErrorState =
-            rootView.findViewById(R.id.constraint_layout_questions_list_error_state)
+            rootView.findViewById(R.id.constraint_layout_question_list_error_state)
         swipeRefreshLayoutQuestionsList =
             rootView.findViewById(R.id.swipe_refresh_layout_questions_list)
         recyclerViewQuestionsList =

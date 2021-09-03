@@ -1,37 +1,47 @@
 package com.github.mathsemilio.stackoverflowquestions.ui.screens.questionslist
 
 import android.os.Bundle
-import com.github.mathsemilio.stackoverflowquestions.R
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.github.mathsemilio.stackoverflowquestions.domain.model.question.Question
 import com.github.mathsemilio.stackoverflowquestions.domain.usecase.question.FetchLastActiveQuestionsUseCase
-import com.github.mathsemilio.stackoverflowquestions.ui.common.BaseActivity
-import com.github.mathsemilio.stackoverflowquestions.ui.screens.questiondetails.QuestionDetailActivity
+import com.github.mathsemilio.stackoverflowquestions.ui.common.BaseFragment
+import com.github.mathsemilio.stackoverflowquestions.ui.common.navigation.ScreensNavigator
 import com.github.mathsemilio.stackoverflowquestions.ui.screens.questionslist.view.QuestionsListView
 import com.github.mathsemilio.stackoverflowquestions.ui.screens.questionslist.view.QuestionsListViewImpl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-class QuestionsListActivity : BaseActivity(),
+class QuestionsListFragment : BaseFragment(),
     QuestionsListView.Listener,
     FetchLastActiveQuestionsUseCase.Listener {
 
+    companion object {
+        fun newInstance() = QuestionsListFragment()
+    }
+
     private lateinit var view: QuestionsListView
 
+    private lateinit var screensNavigator: ScreensNavigator
     private lateinit var coroutineScope: CoroutineScope
 
     private lateinit var fetchLastActiveQuestionsUseCase: FetchLastActiveQuestionsUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        screensNavigator = compositionRoot.screensNavigator
         coroutineScope = compositionRoot.coroutineScopeProvider.UIBoundScope
         fetchLastActiveQuestionsUseCase = compositionRoot.fetchLastActiveQuestionsUseCase
+    }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         view = QuestionsListViewImpl(layoutInflater, null)
-
-        setContentView(view.rootView)
-
-        supportActionBar?.title = getString(R.string.toolbar_title_last_active_questions)
+        return view.rootView
     }
 
     override fun onLastActiveQuestionsFetchedSuccessfully(questions: List<Question>) {
@@ -46,11 +56,12 @@ class QuestionsListActivity : BaseActivity(),
     }
 
     override fun onQuestionClicked(questionId: String) {
-        val intent = QuestionDetailActivity.withQuestionId(this, questionId)
-        startActivity(intent)
+        screensNavigator.toQuestionDetailsScreen(questionId)
     }
 
-    override fun onTryAgainButtonClicked() = fetchLastActiveQuestions()
+    override fun onTryAgainButtonClicked() {
+        fetchLastActiveQuestions()
+    }
 
     private fun fetchLastActiveQuestions() {
         coroutineScope.launch {

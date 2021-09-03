@@ -12,7 +12,7 @@ interface StackoverflowApi {
     suspend fun fetchLastActiveQuestions(): Response<QuestionsResponseSchema>
 
     @GET("questions/{questionId}?key=UvCy98LL0Z9RRyxlla47cg((&site=stackoverflow&filter=withbody")
-    suspend fun getQuestionDetails(
+    suspend fun fetchQuestionDetails(
         @Path("questionId") questionId: String
     ): Response<QuestionDetailsResponseSchema>
 }

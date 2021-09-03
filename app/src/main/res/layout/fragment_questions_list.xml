@@ -5,14 +5,14 @@
     android:id="@+id/swipe_refresh_layout_questions_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screens.questionslist.QuestionsListActivity">
+    tools:context=".ui.screens.questionslist.QuestionsListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_layout_questions_list_error_state"
+            android:id="@+id/constraint_layout_question_list_error_state"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:visibility="gone"
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/error_something_went_wrong"
+                android:text="@string/message_something_went_wrong"
                 android:textAppearance="?textAppearanceHeadline6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
                 android:id="@+id/text_view_try_again"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
                 android:text="@string/message_try_again"
                 android:textColor="@android:color/holo_blue_dark"
