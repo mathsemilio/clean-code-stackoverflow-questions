@@ -41,6 +41,7 @@ dependencies {
     def coroutines_version = "1.5.1-native-mt"
     def lifecycle_version = "2.4.0-alpha03"
     def retrofit_version = "2.9.0"
+    def swipe_refresh_layout_version = "1.1.0"
 
     // Default dependencies
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -60,4 +61,7 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // Swipe-Refresh Layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout_version"
 }

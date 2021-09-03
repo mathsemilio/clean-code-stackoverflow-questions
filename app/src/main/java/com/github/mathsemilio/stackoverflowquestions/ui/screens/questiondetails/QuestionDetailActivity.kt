@@ -1,5 +1,7 @@
 package com.github.mathsemilio.stackoverflowquestions.ui.screens.questiondetails
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.view.View
@@ -8,7 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mathsemilio.stackoverflowquestions.R
-import com.github.mathsemilio.stackoverflowquestions.networking.StackoverflowApi
+import com.github.mathsemilio.stackoverflowquestions.common.ARG_QUESTION_ID
+import com.github.mathsemilio.stackoverflowquestions.networking.api.StackoverflowApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,6 +20,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class QuestionDetailActivity : AppCompatActivity() {
+
+    companion object {
+        fun withQuestionId(context: Context, questionId: String): Intent {
+            return Intent(
+                context,
+                QuestionDetailActivity::class.java
+            ).putExtra(ARG_QUESTION_ID, questionId)
+        }
+    }
 
     private lateinit var progressBar: ProgressBar
     private lateinit var questionTitle: TextView

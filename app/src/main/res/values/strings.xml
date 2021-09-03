@@ -5,5 +5,10 @@
 
     <!-- Lorem ipsum -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque leo vel massa faucibus, vitae convallis enim maximus. Proin et consequat enim. Donec et imperdiet mi, et euismod lectus. Integer vestibulum, ex id condimentum luctus, urna nibh dignissim ligula, nec convallis velit felis in nibh. Cras ultrices nisl diam, id malesuada neque sagittis et. Fusce eget interdum lectus. Morbi venenatis velit non posuere luctus. Donec eget magna faucibus, consequat nisi volutpat, molestie eros. Vivamus scelerisque felis eget neque congue posuere. Morbi aliquam in ex ac tristique. Aliquam in orci ornare enim pellentesque bibendum ut eu dolor. Integer eu velit sit amet enim convallis placerat. Vestibulum ut venenatis est, sed hendrerit velit. Sed tellus orci, lacinia vel lacus vestibulum, hendrerit malesuada enim. Proin a mollis felis. Curabitur sed urna nisl.</string>
+    <string name="toolbar_title_last_active_questions">Last active questions</string>
+    <string name="content_description_network_error_illustration">Network error, illustration</string>
+    <string name="error_something_went_wrong">Something went wrong...</string>
+    <string name="message_check_your_connection">Check your connection and</string>
+    <string name="message_try_again">try again</string>
 
 </resources>
