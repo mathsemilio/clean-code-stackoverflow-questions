@@ -1,4 +1,4 @@
-package com.github.mathsemilio.stackoverflowquestions.ui.screens.main
+package com.github.mathsemilio.stackoverflowquestions.ui.screens.main.view
 
 import android.widget.FrameLayout
 import androidx.annotation.StringRes

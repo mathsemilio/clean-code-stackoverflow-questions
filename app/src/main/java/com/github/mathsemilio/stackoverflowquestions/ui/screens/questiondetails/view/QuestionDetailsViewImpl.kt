@@ -19,8 +19,6 @@ class QuestionDetailsViewImpl(
     private val constraintLayoutQuestionDetailsContent: ConstraintLayout
     private var swipeRefreshLayoutQuestionDetails: SwipeRefreshLayout
 
-    private lateinit var textViewTryAgain: TextView
-
     private lateinit var textViewQuestionTitle: TextView
     private lateinit var textViewQuestionAuthor: TextView
     private lateinit var textViewQuestionBody: TextView
@@ -36,9 +34,7 @@ class QuestionDetailsViewImpl(
             rootView.findViewById(R.id.swipe_refresh_layout_questions_details)
 
         initializeQuestionDetailsContentViews()
-        initializeQuestionDetailsErrorStateViews()
-
-        swipeRefreshLayoutQuestionDetails.isEnabled = false
+        attachSwipeRefreshLayoutOnRefreshListener()
     }
 
     private fun initializeQuestionDetailsContentViews() {
@@ -49,9 +45,12 @@ class QuestionDetailsViewImpl(
         }
     }
 
-    private fun initializeQuestionDetailsErrorStateViews() {
-        textViewTryAgain =
-            constraintLayoutQuestionDetailsErrorState.findViewById(R.id.text_view_try_again)
+    private fun attachSwipeRefreshLayoutOnRefreshListener() {
+        swipeRefreshLayoutQuestionDetails.setOnRefreshListener {
+            notifyListener { listener ->
+                listener.onScreenSwipedToRefresh()
+            }
+        }
     }
 
     override fun bindQuestion(question: Question) {
@@ -72,18 +71,11 @@ class QuestionDetailsViewImpl(
 
     override fun showErrorState() {
         constraintLayoutQuestionDetailsErrorState.isVisible = true
-        attachTryAgainButtonOnClickListener()
-    }
-
-    private fun attachTryAgainButtonOnClickListener() {
-        textViewTryAgain.setOnClickListener {
-            notifyListener { listener ->
-                listener.onTryAgainButtonClicked()
-            }
-        }
+        constraintLayoutQuestionDetailsContent.isVisible = false
     }
 
     override fun hideErrorState() {
         constraintLayoutQuestionDetailsErrorState.isVisible = false
+        constraintLayoutQuestionDetailsContent.isVisible = true
     }
 }

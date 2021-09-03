@@ -8,7 +8,7 @@ abstract class QuestionsListView : BaseObservableView<QuestionsListView.Listener
     interface Listener {
         fun onQuestionClicked(questionId: String)
 
-        fun onTryAgainButtonClicked()
+        fun onScreenSwipedToRefresh()
     }
 
     abstract fun bindQuestions(questions: List<Question>)

@@ -14,8 +14,7 @@
 
     <!-- Messages -->
     <string name="message_something_went_wrong">Something went wrong…</string>
-    <string name="message_check_your_connection">Check your connection and</string>
-    <string name="message_try_again">try again</string>
+    <string name="message_check_your_connection">Check your connection and try again</string>
 
     <!-- Question Details Screen -->
     <string name="by_user">by %s</string>

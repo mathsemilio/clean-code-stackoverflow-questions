@@ -58,21 +58,7 @@
                     android:layout_marginTop="4dp"
                     android:text="@string/message_check_your_connection"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/text_view_try_again"
-                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_view_something_went_wrong" />
-
-                <TextView
-                    android:id="@+id/text_view_try_again"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/message_try_again"
-                    android:textColor="@android:color/holo_blue_dark"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/text_view_check_your_connection"
                     app:layout_constraintTop_toBottomOf="@+id/text_view_something_went_wrong" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

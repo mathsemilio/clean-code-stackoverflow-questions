@@ -2,7 +2,6 @@ package com.github.mathsemilio.stackoverflowquestions.ui.screens.questionslist.v
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +29,15 @@ class QuestionsListViewImpl(
         recyclerViewQuestionsList =
             rootView.findViewById(R.id.recycler_view_questions_list)
 
-        swipeRefreshLayoutQuestionsList.isEnabled = false
+        attachSwipeRefreshLayoutOnRefreshListener()
+    }
+
+    private fun attachSwipeRefreshLayoutOnRefreshListener() {
+        swipeRefreshLayoutQuestionsList.setOnRefreshListener {
+            notifyListener { listener ->
+                listener.onScreenSwipedToRefresh()
+            }
+        }
     }
 
     override fun bindQuestions(questions: List<Question>) {
@@ -53,23 +60,12 @@ class QuestionsListViewImpl(
 
     override fun showErrorState() {
         constraintLayoutQuestionsListErrorState.isVisible = true
-        attachTryAgainButtonOnClickListener()
-    }
-
-    private fun attachTryAgainButtonOnClickListener() {
-        constraintLayoutQuestionsListErrorState.findViewById<TextView>(
-            R.id.text_view_try_again
-        ).also { tryAgainButton ->
-            tryAgainButton.setOnClickListener {
-                notifyListener { listener ->
-                    listener.onTryAgainButtonClicked()
-                }
-            }
-        }
+        recyclerViewQuestionsList.isVisible = false
     }
 
     override fun hideErrorState() {
         constraintLayoutQuestionsListErrorState.isVisible = false
+        recyclerViewQuestionsList.isVisible = true
     }
 
     override fun onQuestionClicked(questionId: String) {

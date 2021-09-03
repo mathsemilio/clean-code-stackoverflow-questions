@@ -6,7 +6,7 @@ import com.github.mathsemilio.stackoverflowquestions.ui.common.view.BaseObservab
 abstract class QuestionDetailsView : BaseObservableView<QuestionDetailsView.Listener>() {
 
     interface Listener {
-        fun onTryAgainButtonClicked()
+        fun onScreenSwipedToRefresh()
     }
 
     abstract fun bindQuestion(question: Question)

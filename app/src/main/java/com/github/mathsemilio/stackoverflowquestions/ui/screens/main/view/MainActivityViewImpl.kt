@@ -1,4 +1,4 @@
-package com.github.mathsemilio.stackoverflowquestions.ui.screens.main
+package com.github.mathsemilio.stackoverflowquestions.ui.screens.main.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

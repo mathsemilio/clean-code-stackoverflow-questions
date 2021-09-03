@@ -59,7 +59,7 @@ class QuestionsListFragment : BaseFragment(),
         screensNavigator.toQuestionDetailsScreen(questionId)
     }
 
-    override fun onTryAgainButtonClicked() {
+    override fun onScreenSwipedToRefresh() {
         fetchLastActiveQuestions()
     }
 

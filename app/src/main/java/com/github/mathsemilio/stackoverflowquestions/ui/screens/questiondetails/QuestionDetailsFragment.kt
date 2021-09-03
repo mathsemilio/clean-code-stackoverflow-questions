@@ -57,7 +57,7 @@ class QuestionDetailsFragment : BaseFragment(),
         questionId = requireArguments().getString(ARG_QUESTION_ID, "")
     }
 
-    override fun onTryAgainButtonClicked() {
+    override fun onScreenSwipedToRefresh() {
         getQuestionDetails()
     }
 

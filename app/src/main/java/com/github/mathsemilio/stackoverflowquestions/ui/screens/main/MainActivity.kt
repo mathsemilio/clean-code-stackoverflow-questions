@@ -6,6 +6,8 @@ import com.github.mathsemilio.stackoverflowquestions.ui.common.BaseActivity
 import com.github.mathsemilio.stackoverflowquestions.ui.common.manager.FragmentContainerManager
 import com.github.mathsemilio.stackoverflowquestions.ui.common.navigation.NavigationEventListener
 import com.github.mathsemilio.stackoverflowquestions.ui.common.navigation.ScreensNavigator
+import com.github.mathsemilio.stackoverflowquestions.ui.screens.main.view.MainActivityView
+import com.github.mathsemilio.stackoverflowquestions.ui.screens.main.view.MainActivityViewImpl
 
 class MainActivity : BaseActivity(),
     MainActivityView.Listener,
