@@ -55,8 +55,8 @@ class QuestionsListFragment : BaseFragment(),
         view.showErrorState()
     }
 
-    override fun onQuestionClicked(questionId: String) {
-        screensNavigator.toQuestionDetailsScreen(questionId)
+    override fun onQuestionClicked(question: Question) {
+        screensNavigator.toQuestionDetailsScreen(question)
     }
 
     override fun onScreenSwipedToRefresh() {

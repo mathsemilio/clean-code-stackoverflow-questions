@@ -1,5 +1,6 @@
 package com.github.mathsemilio.stackoverflowquestions.ui.common.navigation
 
+import com.github.mathsemilio.stackoverflowquestions.domain.model.question.Question
 import com.github.mathsemilio.stackoverflowquestions.ui.common.manager.FragmentTransactionManager
 import com.github.mathsemilio.stackoverflowquestions.ui.screens.questiondetails.QuestionDetailsFragment
 import com.github.mathsemilio.stackoverflowquestions.ui.screens.questionslist.QuestionsListFragment
@@ -14,9 +15,9 @@ class ScreensNavigator(
         )
     }
 
-    fun toQuestionDetailsScreen(questionId: String) {
+    fun toQuestionDetailsScreen(question: Question) {
         fragmentTransactionManager.pushFragmentOntoContainer(
-            QuestionDetailsFragment.withQuestionId(questionId),
+            QuestionDetailsFragment.withQuestion(question),
             stackEntryName = null
         )
         navigationEventListener.onNavigateToSecondaryDestination()

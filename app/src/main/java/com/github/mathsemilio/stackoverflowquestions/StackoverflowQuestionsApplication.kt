@@ -13,6 +13,6 @@ class StackoverflowQuestionsApplication : Application() {
 
         System.setProperty(IO_PARALLELISM_PROPERTY_NAME, Int.MAX_VALUE.toString())
 
-        compositionRoot = CompositionRoot(this)
+        compositionRoot = CompositionRoot()
     }
 }

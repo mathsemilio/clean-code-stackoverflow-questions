@@ -68,9 +68,9 @@ class QuestionsListViewImpl(
         recyclerViewQuestionsList.isVisible = true
     }
 
-    override fun onQuestionClicked(questionId: String) {
+    override fun onQuestionClicked(question: Question) {
         notifyListener { listener ->
-            listener.onQuestionClicked(questionId)
+            listener.onQuestionClicked(question)
         }
     }
 }

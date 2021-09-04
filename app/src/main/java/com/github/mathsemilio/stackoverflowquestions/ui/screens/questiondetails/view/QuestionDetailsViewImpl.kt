@@ -4,9 +4,6 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.github.mathsemilio.stackoverflowquestions.R
 import com.github.mathsemilio.stackoverflowquestions.domain.model.question.Question
 
@@ -15,67 +12,21 @@ class QuestionDetailsViewImpl(
     parent: ViewGroup?
 ) : QuestionDetailsView() {
 
-    private var constraintLayoutQuestionDetailsErrorState: ConstraintLayout
-    private val constraintLayoutQuestionDetailsContent: ConstraintLayout
-    private var swipeRefreshLayoutQuestionDetails: SwipeRefreshLayout
-
-    private lateinit var textViewQuestionTitle: TextView
-    private lateinit var textViewQuestionAuthor: TextView
-    private lateinit var textViewQuestionBody: TextView
+    private var textViewQuestionTitle: TextView
+    private var textViewQuestionAuthor: TextView
+    private var textViewQuestionBody: TextView
 
     init {
         rootView = layoutInflater.inflate(R.layout.fragment_question_detail, parent, false)
 
-        constraintLayoutQuestionDetailsErrorState =
-            rootView.findViewById(R.id.constraint_layout_question_details_error_state)
-        constraintLayoutQuestionDetailsContent =
-            rootView.findViewById(R.id.constraint_layout_question_details_content)
-        swipeRefreshLayoutQuestionDetails =
-            rootView.findViewById(R.id.swipe_refresh_layout_questions_details)
-
-        initializeQuestionDetailsContentViews()
-        attachSwipeRefreshLayoutOnRefreshListener()
-    }
-
-    private fun initializeQuestionDetailsContentViews() {
-        constraintLayoutQuestionDetailsContent.apply {
-            textViewQuestionTitle = findViewById(R.id.text_view_question_title)
-            textViewQuestionAuthor = findViewById(R.id.text_view_question_author)
-            textViewQuestionBody = findViewById(R.id.text_view_question_body)
-        }
-    }
-
-    private fun attachSwipeRefreshLayoutOnRefreshListener() {
-        swipeRefreshLayoutQuestionDetails.setOnRefreshListener {
-            notifyListener { listener ->
-                listener.onScreenSwipedToRefresh()
-            }
-        }
+        textViewQuestionTitle = rootView.findViewById(R.id.text_view_question_title)
+        textViewQuestionAuthor = rootView.findViewById(R.id.text_view_question_author)
+        textViewQuestionBody = rootView.findViewById(R.id.text_view_question_body)
     }
 
     override fun bindQuestion(question: Question) {
         textViewQuestionTitle.text = question.title
         textViewQuestionAuthor.text = context.getString(R.string.by_user, question.owner.displayName)
         textViewQuestionBody.text = Html.fromHtml(question.body, Html.FROM_HTML_MODE_LEGACY)
-    }
-
-    override fun showProgressIndicator() {
-        constraintLayoutQuestionDetailsContent.isVisible = false
-        swipeRefreshLayoutQuestionDetails.isRefreshing = true
-    }
-
-    override fun hideProgressIndicator() {
-        constraintLayoutQuestionDetailsContent.isVisible = true
-        swipeRefreshLayoutQuestionDetails.isRefreshing = false
-    }
-
-    override fun showErrorState() {
-        constraintLayoutQuestionDetailsErrorState.isVisible = true
-        constraintLayoutQuestionDetailsContent.isVisible = false
-    }
-
-    override fun hideErrorState() {
-        constraintLayoutQuestionDetailsErrorState.isVisible = false
-        constraintLayoutQuestionDetailsContent.isVisible = true
     }
 }

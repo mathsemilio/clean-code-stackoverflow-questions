@@ -17,14 +17,16 @@ class QuestionListItemViewImpl(
 
     init {
         rootView = layoutInflater.inflate(R.layout.question_list_item, parent, false)
+
         textViewQuestionTitle = rootView.findViewById(R.id.text_view_question_title)
+
         setQuestionListItemOnClickListener()
     }
 
     private fun setQuestionListItemOnClickListener() {
         rootView.setOnClickListener {
             notifyListener { listener ->
-                listener.onQuestionClicked(question.id)
+                listener.onQuestionClicked(question)
             }
         }
     }

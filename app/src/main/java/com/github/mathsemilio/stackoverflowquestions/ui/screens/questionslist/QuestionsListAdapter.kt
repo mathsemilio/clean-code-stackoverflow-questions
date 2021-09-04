@@ -14,7 +14,7 @@ class QuestionsListAdapter(
     QuestionListItemView.Listener {
 
     interface OnQuestionClickListener {
-        fun onQuestionClicked(questionId: String)
+        fun onQuestionClicked(question: Question)
     }
 
     inner class ViewHolder(
@@ -41,7 +41,7 @@ class QuestionsListAdapter(
 
     override fun getItemCount() = questions.size
 
-    override fun onQuestionClicked(questionId: String) {
-        listener.onQuestionClicked(questionId)
+    override fun onQuestionClicked(question: Question) {
+        listener.onQuestionClicked(question)
     }
 }
