@@ -1,9 +1,23 @@
-<resources>
+<!--
+   ~ Copyright 2021 Matheus Menezes
+   ~
+   ~ Licensed under the Apache License, Version 2.0 (the "License");
+   ~ you may not use this file except in compliance with the License.
+   ~ You may obtain a copy of the License at
+   ~
+   ~   http://www.apache.org/licenses/LICENSE-2.0
+   ~
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+-->
 
+<resources>
     <!-- App name -->
     <string name="app_name">Stackoverflow Questions</string>
 
     <!-- Lorem ipsum -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque leo vel massa faucibus, vitae convallis enim maximus. Proin et consequat enim. Donec et imperdiet mi, et euismod lectus. Integer vestibulum, ex id condimentum luctus, urna nibh dignissim ligula, nec convallis velit felis in nibh. Cras ultrices nisl diam, id malesuada neque sagittis et. Fusce eget interdum lectus. Morbi venenatis velit non posuere luctus. Donec eget magna faucibus, consequat nisi volutpat, molestie eros. Vivamus scelerisque felis eget neque congue posuere. Morbi aliquam in ex ac tristique. Aliquam in orci ornare enim pellentesque bibendum ut eu dolor. Integer eu velit sit amet enim convallis placerat. Vestibulum ut venenatis est, sed hendrerit velit. Sed tellus orci, lacinia vel lacus vestibulum, hendrerit malesuada enim. Proin a mollis felis. Curabitur sed urna nisl.</string>
-
 </resources>
