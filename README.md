@@ -1,5 +1,5 @@
 # Clean Code - Stackoverflow Questions
-Aplicação nativa Android para ilustrar boas práticas de código limpo e arquitetura.
+Aplicação nativa para Android que ilustra boas práticas de código limpo e arquitetura.
 
 ## Objetivo da aplicação
 Esta aplicação visa ilustrar boas práticas de código limpo e arquitetura se baseando nas melhoras práticas
